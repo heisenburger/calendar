@@ -1,0 +1,23 @@
+title: calendar
+email: serenadantingchen@gmail.com
+description: >- 
+  A calendar CSS experiment.
+baseurl: "" 
+url: ""
+
+theme-color: white
+
+# Build settings
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
+permalink: /:categories/:title/
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"

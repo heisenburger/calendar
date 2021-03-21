@@ -1,0 +1,92 @@
+// Reset
+
+* {
+  box-sizing: border-box;
+  &:focus {
+    @include highlight;
+  }
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+// Base
+
+html {
+  font-size: 16px;
+  @include query($bp-2xl){
+    font-size: 18px;
+  }
+  @include query($bp-3xl){
+    font-size: 20px;
+  }
+  @media only print {
+    font-size: 11pt;
+  }
+}
+
+body {
+  font-family: var(--ff-sans);
+  line-height: 1.5;
+  color: var(--fg);
+  background-color: var(--bg);
+  font-feature-settings: "kern" 1,"liga" 1,"calt" 1,"pnum" 1,"tnum" 0,"onum" 1,"lnum" 0,"dlig" 0;
+  font-kerning: normal;
+  text-rendering: optimizeSpeed;
+  position: relative;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+// @media screen {
+  .hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7, deprecated */
+    clip-path: polygon(0% 0%);
+  }
+// }
+
+@media print {
+  body {
+    color: black !important;
+    background-color: white !important;
+    background-image: none !important;
+  }
+  .no-print {
+    display: none;
+  }
+}
+
+// Images
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  color: transparent;
+  @include dark {
+    filter: contrast(0.8);
+  }
+}
+
+// Figure
+
+figure {
+  break-inside: avoid;
+  & > img {
+    display: block;
+    margin: 0 auto;
+  }
+  figcaption {
+    font-size: var(--f-sml);
+    max-width: 100%;
+    margin-top: 1em;
+  }
+}
